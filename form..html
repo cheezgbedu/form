@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+</head>
+<style>
+    *{
+        margin:0;
+        padding:0;
+        font-size: 18px;    
+    }
+    body{
+        background-image:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url('hero.jpg');
+        background-size: cover;
+        
+        
+    }
+    .start{
+        background-color: #ffae42;
+        padding:25px;
+        text-align: center;
+        margin-top:7rem;
+        border-radius: 50px 50px 50px 50px;
+        width:33%;
+        margin-left: 33%;
+    }
+
+</style>
+<body>
+<div class="start">
+     <form name="Login" onsubmit="return loginForm()" oninput="return loginForm()" onreset="return Fname()">
+        <div><h3>Log in </h3></div><br>
+            <label for="firstname">Email:</label><br>
+            <input type="text" name="email" id="first" placeholder="first name here"><br>
+            <span id="error"></span><br>
+            <label for="password">Password:</label><br>
+            <input type="password" name="pass" required id="pass"  placeholder="enter pass here"><br><br/>
+            <span id="perror"></span><br><br>
+            <input type="submit" value="Login"><br>
+            <a href="#"><b>Forgot your Password?</b></a>
+    </form>
+    <script>
+        function loginForm(){
+            var email = document.forms['Login']['email'].value;
+            var pass = document.forms['Login']['pass'].value;
+            if(email == null || email ==""){
+                document.getElementById("error").innerHTML="Email can't be blank";
+                return false;
+            }else if(pass.length<7){
+             document.getElementById("perror").innerHTML="Password must be at least 6 characters long.";
+             document.getElementById("perror").style.color ="red";
+                return false;
+             }
+        }
+    </script>
+</div>
+    
+</body>
+</html>
